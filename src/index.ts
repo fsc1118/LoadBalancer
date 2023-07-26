@@ -1,13 +1,14 @@
-// src/index.ts
-import express from 'express';
+import express from "express"
+import { Request } from "express"
+import { Response } from "express"
 
-const app = express();
-const port = 3000;
+const app = express()
+const port = 8080
 
-app.get('/', (req, res) => {
-    res.send('Hello, TypeScript with Express!');
-});
+app.get("*", (req: Request, res: Response) => {
+    res.redirect("https://shichfan.people.aws.dev")
+})
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+    console.log(`Example app listening at http://localhost:${port}`)
+})

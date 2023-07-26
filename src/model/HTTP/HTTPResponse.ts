@@ -14,9 +14,6 @@ export default class HTTPResponse {
         headers: Map<string, string>,
         body: string
     ) {
-        if (httpStatusCode < 100 || httpStatusCode > 599) {
-            throw new InvalidHttpStatusCodeError(httpStatusCode)
-        }
         this.httpStatusCode = httpStatusCode
         this.headers = headers
         this.body = body

@@ -1,21 +1,27 @@
 import Action from "../Action"
-import HTTPStatusResponse from "../../model/HTTP/HTTPResponse"
 import ActionResult from "../ActionResult"
 import FixedActionResult from "./FixedActionResult"
-
+import HTTPResponse from "../../model/HTTP/HTTPResponse"
 /**
  * 
  * @description This class represents an action that returns a fixed HTTP Response.
  */
 export default class FixedAction extends Action {
-    desiredHTTPResponse: HTTPStatusResponse
+
+    private desiredStatusCode: number
+    private desiredBody: string
+    private desiredHeaders: Map<string, string>
     execute(): ActionResult {
-        return new FixedActionResult(this.desiredHTTPResponse)
+        return new FixedActionResult(this.desiredStatusCode, this.desiredBody, this.desiredHeaders)
     }
     constructor(
-        desiredHTTPResponse: HTTPStatusResponse
+        status: number,
+        body: string,
+        headers: Map<string, string>
     ) {
         super()
-        this.desiredHTTPResponse = desiredHTTPResponse
+        this.desiredStatusCode = status
+        this.desiredBody = body
+        this.desiredHeaders = headers
     }
 }

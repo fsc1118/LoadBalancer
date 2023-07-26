@@ -1,5 +1,5 @@
-import ActionResult from "./ActionResult";
-
+import ActionResult from "./ActionResult"
+import { Request } from "express"
 export default abstract class Action {
-    abstract execute(): ActionResult
+    abstract execute(req: Request): ActionResult
 }

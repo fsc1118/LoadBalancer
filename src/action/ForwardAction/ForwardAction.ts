@@ -2,12 +2,12 @@ import Action from "../Action"
 import ActionResult from "../ActionResult"
 
 class ForwardAction extends Action {
-    targetGroupId: string
+    targetGroupName: string
     constructor(
-        targetGroupId: string
+        targetGroupName: string
     ) {
         super()
-        this.targetGroupId = targetGroupId
+        this.targetGroupName = targetGroupName
     }
     execute(): ActionResult {
         throw new Error("Method not implemented.")

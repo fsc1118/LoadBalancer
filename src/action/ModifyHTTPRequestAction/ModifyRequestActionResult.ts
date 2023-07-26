@@ -1,5 +1,5 @@
-import HTTPRequest from "../../model/HTTP/HTTPRequest"
 import ActionResult from "../ActionResult"
+import HTTPRequest from "../../model/HTTP/HTTPRequest"
 
 export default class ModifyRequestActionResult extends ActionResult {
     desiredModifiedRequest: HTTPRequest

@@ -1,6 +1,5 @@
-import HTTPRequestTransformation from "./HTTPRequestTransformation";
-import HTTPRequest from "../../../model/HTTP/HTTPRequest";
-
+import HTTPRequest from "../../../model/HTTP/HTTPRequest"
+import HTTPRequestTransformation from "./HTTPRequestTransformation"
 export default class InsertHeaderTransformation extends HTTPRequestTransformation {
     newHeaders: Map<string, string>
     constructor(newHeaders: Map<string, string>) {

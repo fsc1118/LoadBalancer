@@ -1,22 +1,6 @@
 import HTTPResponse from "../../src/model/HTTP/HTTPResponse"
 import InvalidHttpStatusCodeError from "../../src/error/HTTP/InvalidHttpStatusCodeError"
 describe("HTTPResponse", () => {
-    it("throws invalidHTTPStatusCodeError if the HTTP status code is not valid", () => {
-        expect(() => {
-            new HTTPResponse(600, new Map<string, string>(), "")
-        }).toThrow(InvalidHttpStatusCodeError)
-        expect(() => {
-            new HTTPResponse(99, new Map<string, string>(), "")
-        }).toThrow(InvalidHttpStatusCodeError)
-    })
-    it("does not throw invalidHTTPStatusCodeError if the HTTP status code is valid", () => {
-        expect(() => {
-            new HTTPResponse(100, new Map<string, string>(), "")
-        }).not.toThrow(InvalidHttpStatusCodeError)
-        expect(() => {
-            new HTTPResponse(599, new Map<string, string>(), "")
-        }).not.toThrow(InvalidHttpStatusCodeError)
-    })
     it("returns the correct status code as specified from constructor", () => {
         const desiredStatusCode = 200
         const httpResponse = new HTTPResponse(desiredStatusCode, new Map<string, string>(), "")

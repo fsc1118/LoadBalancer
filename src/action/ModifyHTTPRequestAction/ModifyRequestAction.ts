@@ -4,7 +4,6 @@ import ActionResult from "../ActionResult"
 import HTTPRequestTransformation from "./HTTPRequestTransformation/HTTPRequestTransformation"
 import ModifyRequestActionResult from "./ModifyRequestActionResult"
 
-
 /**
  * 
  * @category Actions
@@ -14,7 +13,6 @@ import ModifyRequestActionResult from "./ModifyRequestActionResult"
  */
 
 class ModifyRequestAction extends Action {
-
     request: HTTPRequest
     transformations: Array<HTTPRequestTransformation>
     constructor(
