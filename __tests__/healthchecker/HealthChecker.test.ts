@@ -4,7 +4,7 @@ import Target from "../../src/target/Target"
 
 describe("HealthChecker", () => {
     const port1 = 6778, port2 = 6779
-    const endPoint1 = "http://test.com", endPoint2 = "http://test2.com"
+    const endPoint1 = "http://test1.com", endPoint2 = "http://test2.com"
     const healthCheckPath1 = "health", healthCheckPath2 = "health"
     it("updates health status to be unhealthy if healthcheck endpoint returns non-200 status code", () => {
         nock.cleanAll()
@@ -52,11 +52,9 @@ describe("HealthChecker", () => {
             nock.cleanAll()
         })
     })
-
+    const DELAY = 10000
     it("updates the health status of the target if healthcheck timeout", () => {
         nock.cleanAll()
-        const DELAY = 20000
-        jest.setTimeout(DELAY + 10000)
         nock(endPoint1 + ":" + port1).persist().get(`/${healthCheckPath1}`).delayConnection(DELAY).reply(200)
         nock(endPoint2 + ":" + port2).persist().get(`/${healthCheckPath2}`).delayConnection(DELAY).reply(200)
         const target = [
@@ -76,7 +74,6 @@ describe("HealthChecker", () => {
         }).finally(() => {
             HealthChecker.stop()
             nock.cleanAll()
-            jest.setTimeout(5000)
         })
-    })
+    }, DELAY)
 })

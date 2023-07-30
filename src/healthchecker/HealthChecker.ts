@@ -12,7 +12,6 @@ export default class HealthChecker {
                     clearTimeout(requestTimeout)
                     // Log error with timestamp
                     target.isHealthy = false
-                    require("fs").appendFileSync("log.txt", "Health check timeout at " + new Date().toISOString() + "\n")
                 }, TIMEOUT)
                 const request = http.get(url, (response: http.IncomingMessage) => {
                     response.on("data", () => { })
